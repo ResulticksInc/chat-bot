@@ -5,8 +5,13 @@ import 'react-chatbot-kit/build/main.css'
 import config from './config.js';
 import MessageParser from './ActionProvider';
 import ActionProvider from './MessageParser';
+import { useEffect } from 'react';
 
 function App() {
+  
+  useEffect(() => {
+    alert(localStorage.getItem('isAuth'))
+  })
   return (
     <div>
       <Chatbot 
