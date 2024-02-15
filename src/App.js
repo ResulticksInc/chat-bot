@@ -8,13 +8,17 @@ import ActionProvider from './MessageParser';
 import { useEffect } from 'react';
 
 function App() {
-  
+
   useEffect(() => {
-    alert(localStorage.getItem('isAuth'))
+    window.addEventListener('message', event => {
+      console.log('Message received from parent:', event.data);
+      // You can send a message back to the parent window if needed:
+      // event.source.postMessage('Message received!', event.origin);
+    });
   })
   return (
     <div>
-      <Chatbot 
+      <Chatbot
         config={config}
         messageParser={MessageParser}
         actionProvider={ActionProvider}
